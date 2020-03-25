@@ -36,12 +36,21 @@
 
 <br>
 
-    <p>To get started, please log in or sign up below!</p>
-        
-    <p>
-        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </p>
-        <p><%= link_to "Log In", new_user_session_path %></p>
-        <p><%= link_to "Sign Up", new_user_registration_path  %> </p>
-    </p>
+    <% if !user_signed_in? %>
+        <p>To get started, please log in or sign up below!</p>
+            
+        <p>
+            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </p>
+            <p><%= link_to "Log In", new_user_session_path %></p>
+            <p><%= link_to "Sign Up", new_user_registration_path  %> </p>
+        </p>
+    <% end %>
+
+    <% if user_signed_in? %>
+        <p> <center><%= link_to "Create Gratitudes!", new_gratitude_path %> </center> </p>
+        <b></b>
+        <p> <center> <%= link_to "All Gratitudes!", gratitudes_path %> </p> </center>
+    <% end %>
+
 
 </body>
