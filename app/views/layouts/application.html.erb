@@ -10,6 +10,18 @@
   </head>
 
   <body>
+      <%= render 'layouts/nav' %>
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+      <div>
+        <% if flash[:message] %>
+          <%= flash[:message]  %>
+        <% end %>
+      </div>
+       <p><%= @error %></p>
     <%= yield %>
   </body>
 </html>
+
+

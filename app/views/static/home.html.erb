@@ -1,0 +1,14 @@
+<h2>Welcome to the Rails Gratitude Journal!</h2>
+
+<p>Using Ruby on Rails, this app lets you create and manage a gratitude journal. To get started, please log in or sign up below!</p>
+<br>
+<p>
+    <%= link_to "Log In", new_user_session_path %>
+    <br><br>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+
+    <br><br>
+
+    <%= link_to "Sign Up", new_user_registration_path  %>
+
+</p>
