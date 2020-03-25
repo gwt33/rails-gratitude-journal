@@ -1,14 +1,47 @@
-<h2>Welcome to the Rails Gratitude Journal!</h2>
+<h1>Welcome to the Rails Gratitude Journal!</h2>
+<body>
+    
 
-<p>Using Ruby on Rails, this app lets you create and manage a gratitude journal. To get started, please log in or sign up below!</p>
+    <p > 
+        A Gratitude Journal is a personal log to reflect upon what you're grateful for in daily life. 
+    </p>
+
+    <p >
+        Research in positive psychology suggests that this habit can help:
+        <ul>- rewire the brain in order to focus on the positives in life</ul>
+        <ul>- reduce depressive symptoms</ul>
+        <ul>- build up our resiliency to negative situations </ul>
+    </p>
+
+    <br>
+    <p > <strong> Things to remember: </strong> </p>
+
+    <p>
+        <ul>
+            - Try to choose a specific memory. be detailed, and reflect on how you felt.
+        </ul>
+        <ul>
+            - Be detailed, and reflect on how you felt.
+        </ul>
+        <ul>
+            - Write a meaningful entry 1-3 times a week.
+        </ul>
+        <ul>
+            - Stick to 3 gratitudes, and don't choose the same ones.
+        </ul>
+        <ul>
+            - Be consistent!
+        </ul>
+    </p>
+
 <br>
-<p>
-    <%= link_to "Log In", new_user_session_path %>
-    <br><br>
-    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 
-    <br><br>
+    <p>To get started, please log in or sign up below!</p>
+        
+    <p>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %> </p>
+        <p><%= link_to "Log In", new_user_session_path %></p>
+        <p><%= link_to "Sign Up", new_user_registration_path  %> </p>
+    </p>
 
-    <%= link_to "Sign Up", new_user_registration_path  %>
-
-</p>
+</body>
