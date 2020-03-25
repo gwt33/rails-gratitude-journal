@@ -19,13 +19,12 @@ username
 email
 
 ## Comment * join table joining users and posts
-
-## belongs_to :user
+belongs_to :user
 belongs_to :post
 content
 
-## Categories
+<!--## Categories
 
 name
 has_many :posts
-has_many :users, through: :posts
+has_many :users, through: :posts -->
