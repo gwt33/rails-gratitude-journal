@@ -23,6 +23,13 @@ belongs_to :user
 belongs_to :post
 content
 
+## Nested Routes - new, show or index
+
+/users/:id/posts
+/users/:id/comments
+/posts/:id/comments
+
+
 <!--## Categories
 
 name
