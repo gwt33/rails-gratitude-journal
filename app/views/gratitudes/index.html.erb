@@ -1,0 +1,7 @@
+<h1>All Gratitudes</h1>
+
+<ul>
+  <% @gratitudes.each do |grat| %>
+    <li><%= link_to grat.title, gratitude_path(grat) %> by <%= grat.user.email %></li>
+  <% end %> 
+</ul>
