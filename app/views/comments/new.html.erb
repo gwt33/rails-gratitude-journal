@@ -1,0 +1,20 @@
+<h1>Add a new comment for <%=@gratitude.user.email%>'s gratitude!</h1>
+
+<h4>What they're grateful for:</h4>
+<p><%= @gratitude.content %></p>
+
+
+<%= form_for([@comment.gratitude, @comment]) do |f|%>
+
+    <% if !@comment.gratitude %>
+        <%= f.label :gratitude %>
+        <%= f.collection_select :gratitude_id, Gratitude.all, :id, :title %>
+    <% else %>
+        <%= f.hidden_field :gratitude_id %>
+    <% end %>
+
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+
+        <%= f.submit %>
+    <% end %>
