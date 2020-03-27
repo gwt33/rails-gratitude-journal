@@ -1,5 +1,10 @@
 <h1> <center> Create your Gratitudes! </center> </h1>
 <br><br>
+
+<%= render partial: "layout/error", locals: {object: @gratitude} %>
+
+<br>
+
     <h3>
         <center>
             <%= form_for(@gratitude) do |grat| %>
