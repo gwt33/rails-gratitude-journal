@@ -11,8 +11,9 @@
         <% if user_signed_in? %>
             <%= link_to "Home", "/" %> |
             <%= link_to "Log Out", destroy_user_session_path, method: :delete %>  |  
-            <%= link_to "Your Page", current_user %> |
-            <%= link_to "All Gratitudes", gratitudes_path %>
+            <%= link_to "All Gratitudes", gratitudes_path %> | 
+            <%= link_to "Create Gratitudes", new_gratitude_path %>
+
         <% end %>
         <br>    
     </ul> 
