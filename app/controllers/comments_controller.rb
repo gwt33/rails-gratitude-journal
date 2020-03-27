@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
             @comments = @gratitude.comments
         else
             @error = "That gratitude doesn't exist!" if params[:gratitude_id]
-            @comments = Comment.all
+            @comments = Comment.all.ordered_by_time
         end
     end
 
