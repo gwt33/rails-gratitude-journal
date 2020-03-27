@@ -1,0 +1,15 @@
+<h1> <center> Edit <%=@gratitude.title%>! </center> </h1>
+<br><br>
+    <h3>
+        <center>
+            <%= form_for(@gratitude) do |grat| %>
+                <%= Time.now.strftime("%A %m/%d/%Y %r") %>
+                    <br><br>
+                <%= grat.text_field :title, placeholder: "Your title...", size: "40x30" %>
+                    <br><br>
+                <%= grat.text_area :content, placeholder: "Write 3 things your grateful for!", size: "55x15" %>
+                    <br><br>
+                <%= grat.submit %>
+            <% end %>
+        </center>
+    </h3>
