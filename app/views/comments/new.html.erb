@@ -1,7 +1,10 @@
+<% if @gratitude %>
 <h1>Add a new comment for <%=@gratitude.user.email%>'s gratitude!</h1>
-
 <h4>What they're grateful for:</h4>
 <p><%= @gratitude.content %></p>
+<% else %>
+<h1>Add a new comment!</h1>
+<% end %>
 
 
 <%= form_for([@comment.gratitude, @comment]) do |f|%>
@@ -13,8 +16,20 @@
         <%= f.hidden_field :gratitude_id %>
     <% end %>
 
-        <%= f.label :content %>
-        <%= f.text_field :content %>
+        <%= f.label "Say something nice!" %>
+        <%= f.text_field :content, size: "60x50" %>
 
-        <%= f.submit %>
+        <%= f.submit "Submit" %>
     <% end %>
+
+<% if @comment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this from being saved:</h2>
+
+    <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
