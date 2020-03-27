@@ -26,14 +26,19 @@ class GratitudesController < ApplicationController
 
     def edit
         @gratitude = Gratitude.find_by_id(params[:id])
-        redirect_to gratitudes_path if !@gratitude && @gratitude.user != current_user
+        if !@gratitude || @gratitude.user != current_user
+            flash[:message] = "You aren't allowed to do that!"
+            redirect_to gratitudes_path 
+        end
     end
     
     def update
         @gratitude = Gratitude.find_by_id(params[:id])
         #authenticates the user and gratitude, redirects if false
-        redirect_to gratitudes_path if !@gratitude && @gratitude.user != current_user
-        if @gratitude.update(gratitude_params)
+        if !@gratitude || @gratitude.user != current_user
+            flash[:message] = "You aren't allowed to do that!"
+            redirect_to gratitudes_path 
+        elsif @gratitude.update(gratitude_params)
             redirect_to gratitude_path(@gratitude)
         else
             render :edit
@@ -42,9 +47,14 @@ class GratitudesController < ApplicationController
 
     def destroy
         @gratitude = Gratitude.find_by(id: params[:id])
-        @gratitude.destroy
-        flash[:notice] = "Gratitude deleted!"
-        redirect_to gratitude_path(@gratitude)
+        if @gratitude.user != current_user
+            flash[:message] = "You aren't allowed to do that!"
+            redirect_to gratitudes_path 
+        else
+            @gratitude.destroy
+            flash[:notice] = "Gratitude deleted!"
+            redirect_to gratitude_path(@gratitude)
+        end
     end
 
     def longest_content_g
@@ -55,5 +65,9 @@ class GratitudesController < ApplicationController
 
     def gratitude_params
         params.require(:gratitude).permit(:title, :content)
+    end
+
+    def if_current_user_and_gratitude
+
     end
 end
