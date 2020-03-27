@@ -1,0 +1,12 @@
+<% if @gratitude %>
+  <h1>Comments for <%= @gratitude.title%></h1>
+<% else %>
+  <h1>All Comments</h1>
+<% end %>
+
+<ul>
+<% @comments.each do |c|%>
+  <li><%= c.user.email%> says "<%= c.content%>" about this gratitude: <strong><%= link_to c.gratitude.title, gratitude_path(c.gratitude_id) %></strong></li>
+  <br>
+<% end %>
+</ul>
