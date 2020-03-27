@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # need to source this relationship with the join table
   has_many :commented_gratitudes, through: :comments, source: :gratitude
 
+  validates :email, presence: true
+
+
   # Include default devise modules. Others available are:
   # :confirmable(email to confirm who you are), :lockable(lock users if they fail too much to sign in), :timeoutable(allow users to sign out after a certain amount of time), 
   # :trackable(keep a log od when users log in and out) and :omniauthable(log in with google, etc)
