@@ -2,8 +2,7 @@
 
 <ul>
   <% @gratitudes.each do |grat| %>
-    <li><%= link_to grat.title, gratitude_path(grat) %> by <%= grat.user.email %> </li>
+    <li><%= link_to grat.title, gratitude_path(grat) %> by <%= grat.user.email %> on <%= grat.created_at.strftime("%A %m/%d/%Y %r") %> </li>
     <br>
   <% end %> 
-
 </ul>
