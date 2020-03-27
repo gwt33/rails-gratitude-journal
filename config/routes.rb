@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   resources :gratitudes do
     resources :comments
   end
+  post '/gratitudes/:id/edit' => 'gratitudes#edit'
   
   resources :comments
 
   resources :users do
-    resources :gratitudes, only: [:new, :create, :index] #shallow routes: only nest the routes you need (crucial to know the post_id )
+    resources :gratitudes, only: [:new, :create, :index] #shallow routes: only nest the routes you need (crucial to know the post_id)
   end
   
 end
