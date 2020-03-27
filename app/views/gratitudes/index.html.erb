@@ -2,6 +2,8 @@
 
 <ul>
   <% @gratitudes.each do |grat| %>
-    <li><%= link_to grat.title, gratitude_path(grat) %> by <%= grat.user.email %></li>
+    <li><%= link_to grat.title, gratitude_path(grat) %> by <%= grat.user.email %> </li>
+    <br>
   <% end %> 
+
 </ul>
