@@ -6,6 +6,7 @@
 <h1>Add a new comment!</h1>
 <% end %>
 
+<%= render partial: "layouts/error", locals: {object: @comment} %>
 
 <%= form_for([@comment.gratitude, @comment]) do |f|%>
 
@@ -21,15 +22,4 @@
 
         <%= f.submit "Submit" %>
     <% end %>
-
-<% if @comment.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this from being saved:</h2>
-
-    <ul>
-    <% @comment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+ 
