@@ -21,7 +21,7 @@ class GratitudesController < ApplicationController
     end
 
     def index
-        @gratitudes = Gratitude.all
+        @gratitudes = Gratitude.all.ordered_by_time
     end
 
     def edit
@@ -45,6 +45,10 @@ class GratitudesController < ApplicationController
         @gratitude.destroy
         flash[:notice] = "Gratitude deleted!"
         redirect_to gratitude_path(@gratitude)
+    end
+
+    def longest_content_g
+        @gratitudes = Gratitude.all.longest_content
     end
 
     private
