@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!, except: [:index]
 
     def index
         #need to check if it's nested
@@ -33,12 +34,11 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @gratitude = Gratitude.find_by(id: params[:id])
-        @gratitude.destroy
-        flash[:notice] = "Recipe deleted!"
-        redirect_to recipe_path(@gratitude)
+        @comment = Comment.find_by(id: params[:id])
+        @comment.destroy
+        flash[:notice] = "Comment deleted!"
+        redirect_to recipe_path(@comment)
     end
-
 
     private
 
