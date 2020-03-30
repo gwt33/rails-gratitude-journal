@@ -1,13 +1,12 @@
 # Gratitude Journal
 
-## Gratitude *join table joining categories & users
+## Gratitude *can be join table
 
 belongs_to :user
 has_many :comments
 has_many :users, through :comments
-belongs_to :category
 title
-content
+content (should be gratitude_one, gratitude_two, gratitude_three)
 
 ## User (use devise and Omniauth with google)
 
@@ -18,7 +17,7 @@ has_many :categories, through: :gratitudes
 username
 email
 
-## Comment * join table joining users and gratitudes
+## Comment * can be join table joining users and gratitudes
 belongs_to :user
 belongs_to :gratitude
 content
