@@ -11,23 +11,23 @@ content
 
 ## User (use devise and Omniauth with google)
 
-has_many :posts
+has_many :gratitudes
 has_many :comments
-has_many :commented_posts, through :comments
-has_many :categories, through: :posts
+has_many :commented_gratitudes, through :comments
+has_many :categories, through: :gratitudes
 username
 email
 
-## Comment * join table joining users and posts
+## Comment * join table joining users and gratitudes
 belongs_to :user
-belongs_to :post
+belongs_to :gratitude
 content
 
 ## Nested Routes - new, show or index
 
-/users/:id/posts
+/users/:id/gratitudes
 /users/:id/comments
-/posts/:id/comments
+/gratitudes/:id/comments
 
 
 <!--## Categories
